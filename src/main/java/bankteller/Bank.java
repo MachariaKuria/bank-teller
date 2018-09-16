@@ -8,6 +8,9 @@ public class Bank {
 
 	Map<String, BankAccount> accounts = new HashMap<>();
 
+	BankAccount checking = new BankAccount("1111", "Checking", 500);
+	BankAccount savings = new BankAccount("2222", "Savings", 100);
+
 	public void add(BankAccount account) {
 
 		accounts.put(account.getAccountNumber(), account);
@@ -40,6 +43,13 @@ public class Bank {
 		BankAccount depositIntoAccount = findAccount(accountNumber);
 		depositIntoAccount.deposit(amount);
 
+	}
+
+	public void showDetails() {
+		System.out.println("Here are your accounts at our bank:");
+		System.out.println("(" + checking.getAccountNumber() + ") " + checking.getAccountType() + " "
+				+ (double) checking.getBalance() + "\n(" + savings.getAccountNumber() + ") " + savings.getAccountType()
+				+ " " + (double) savings.getBalance());
 	}
 
 }

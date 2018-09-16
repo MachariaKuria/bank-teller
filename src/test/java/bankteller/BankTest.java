@@ -67,6 +67,7 @@ public class BankTest {
 		assertThat(account1.getBalance(), is(150));
 
 	}
+
 	@Test
 	public void shouldDepositIntoAccount2() {
 

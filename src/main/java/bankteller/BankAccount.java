@@ -16,7 +16,7 @@ public class BankAccount {
 
 		return accountNumber;
 	}
-	
+
 	public String getAccountType() {
 		return acctType;
 	}
@@ -27,8 +27,12 @@ public class BankAccount {
 	}
 
 	public void withdraw(int amount) {
-		balance -= amount;
+		if (balance < amount) {
+			System.out.println("You don't have sufficient funds to withdraw.");
 
+		} else {
+			balance -= amount;
+		}
 	}
 
 	public void deposit(int amount) {
