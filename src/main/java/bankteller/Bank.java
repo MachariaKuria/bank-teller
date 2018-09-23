@@ -3,13 +3,12 @@ package bankteller;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
+
 
 public class Bank {
 
 	Map<String, BankAccount> accounts = new HashMap<>();
-
-	BankAccount checking = new BankAccount("1111", "Checking", 500);
-	BankAccount savings = new BankAccount("2222", "Savings", 100);
 
 	public void add(BankAccount account) {
 
@@ -45,11 +44,25 @@ public class Bank {
 
 	}
 
-	public void showDetails() {
-		System.out.println("Here are your accounts at our bank:");
-		System.out.println("(" + checking.getAccountNumber() + ") " + checking.getAccountType() + " "
-				+ (double) checking.getBalance() + "\n(" + savings.getAccountNumber() + ") " + savings.getAccountType()
-				+ " " + (double) savings.getBalance());
+	public String showAllAccounts() {
+		
+		for (Entry<String, BankAccount> entry : accounts.entrySet()) {
+			System.out.print("\n(" + entry.getKey() + ")"); 
+			System.out.print(" " + entry.getValue().getAccountType());
+			System.out.print(" " + entry.getValue().getBalance());
+		}
+		return " ";
+	}
+
+	public void depositAll() {
+		for (BankAccount account : accounts.values()) {
+			account.depositAll();
+		}
+	}
+
+	public void showBalance(BankAccount account) {
+		 account.getBalance();
+		
 	}
 
 }

@@ -76,4 +76,19 @@ public class BankTest {
 		assertThat(account2.getBalance(), is(150));
 
 	}
+	@Test
+	public void shouldBeAbleToShowAccount2Balance() {
+
+		underTest.showBalance(account2);
+		assertThat(account2.getBalance(), is(150));
+
+	}	
+	@Test
+	public void shouldDepositToAllAccounts() {
+		underTest.add(account1);
+		underTest.add(account2);
+		underTest.depositAll();
+		assertThat(account1.getBalance(), is(110));
+		assertThat(account2.getBalance(), is(110));
+	}
 }

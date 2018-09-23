@@ -40,4 +40,9 @@ public class BankAccount {
 
 	}
 
+	public void depositAll() {
+		
+		balance += 10;
+	}
+
 }
